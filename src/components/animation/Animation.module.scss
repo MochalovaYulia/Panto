@@ -1,0 +1,99 @@
+.infoDot {
+    position: relative;
+    cursor: pointer;
+}
+
+.circle {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+
+    transition: all 0.2s ease-in;
+}
+
+.radius {
+    width: 32px;
+    height: 32px;
+
+    border: 0.2px solid #fff;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+
+    animation: pulse 1s infinite alternate;
+}
+
+.infoDot:hover .radius {
+    animation: pulse 1s infinite alternate paused;
+}
+
+.infoDot:hover .circle {
+    background-color: var(--accent);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+.hint {
+    position: absolute;
+    top: -26px;
+    left: 50%;
+    transform: translate(-50%, -100%);
+
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    padding-top: 12px;
+
+    width: 112px;
+    height: 56px;
+    background-image: url('../../assets/Union.svg');
+}
+
+.radio {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+}
+
+.radio:checked + .fake {
+    background-image: url('../../assets/Checkbox.svg'); 
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.fake {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    background-color: gray;
+    border: 2px solid #fff;
+    border-radius: 50%;
+
+    &--orange {
+        background-color: var(--orange);
+    }
+    &--biruza {
+        background-color: var(--biruza);
+    }
+    &--gray {
+        background-color: var(--gray);
+    }
+}
